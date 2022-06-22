@@ -12,8 +12,7 @@ interface PostProps {
 export const Post = () => {
     const API = 'https://jsonplaceholder.typicode.com/posts'
 
-    const { isLoading, error, data } = useQuery('fetchPosts', () => axios.get('https://jsonplaceholder.typicode.com/posts').then((response) =>
-        (response.data)))
+    const { isLoading, error, data } = useQuery('fetchPosts', getData)
 
     const mutation = useMutation((newPost: PostProps) => {
         return axios.post('https://jsonplaceholder.typicode.com/posts', newPost)
